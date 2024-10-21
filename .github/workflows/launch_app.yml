@@ -27,7 +27,6 @@ jobs:
 
       - name: Start Express app with New Relic agent
         run: |
-          # node index.js /dev/null 2>&1 &
           node index.js
 
       - name: Wait for 30 seconds
