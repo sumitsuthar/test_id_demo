@@ -31,6 +31,9 @@ jobs:
         env:
           NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
           NEW_RELIC_APP_NAME: My Express App
+          NEW_RELIC_LOG_LEVEL: debug
+          CSEC_ENV: dev
+          
 
       - name: Wait for 30 seconds
         run: |
