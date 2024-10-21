@@ -1,6 +1,7 @@
 const newrelic = require('newrelic');
 const express = require('express');
 const app = express();
+const cp = require('child_process');
 
 app.get('/', (req, res) => {
   res.send('Hello from Express!');
@@ -12,7 +13,7 @@ app.get("/rce/attack", (req, res) => {
     cp.exec(cmd, (err, stdout, stderr) => {
       if (err) {
         console.error(err);
-        return;
+        res.send("failed")
       }
       res.send(stdout.toString());
     });
