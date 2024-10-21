@@ -65,9 +65,9 @@ jobs:
           ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
         run: |
           curl --location 'https://staging-api.newrelic.com/graphql' \
-          --header 'Api-Key: $API_KEY' \
+          --header 'Api-Key: ${API_KEY}' \
           --header 'Content-Type: application/json' \
-          --data '{  "query": "{\n  actor {\n    account(id: $ACCOUNT_ID) {\n      nrql(query: \"FROM CsecIastTrace SELECT filter(uniqueCount(concat(apiId, scanId, recordIndex)), WHERE severityLevel = '\''HIGH'\'') as '\''highcount'\'', filter(uniqueCount(concat(apiId, scanId, recordIndex)), WHERE severityLevel = '\''CRITICAL'\'') as '\''criticalcount'\'', uniqueCount(concat(apiId, scanId, recordIndex)) as count where status = '\''VULNERABLE'\'' and labelStatus NOT IN ('\''falsePositive'\'', '\''resolved'\'') SINCE  1 week ago\") {\n        results\n      }\n    }\n  }\n}"}'
+          --data '{  "query": "{\n  actor {\n    account(id: ${ACCOUNT_ID}) {\n      nrql(query: \"FROM CsecIastTrace SELECT filter(uniqueCount(concat(apiId, scanId, recordIndex)), WHERE severityLevel = '\''HIGH'\'') as '\''highcount'\'', filter(uniqueCount(concat(apiId, scanId, recordIndex)), WHERE severityLevel = '\''CRITICAL'\'') as '\''criticalcount'\'', uniqueCount(concat(apiId, scanId, recordIndex)) as count where status = '\''VULNERABLE'\'' and labelStatus NOT IN ('\''falsePositive'\'', '\''resolved'\'') SINCE  1 week ago\") {\n        results\n      }\n    }\n  }\n}"}'
 
 
      
