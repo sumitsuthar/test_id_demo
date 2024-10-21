@@ -15,7 +15,7 @@ jobs:
 
       - name: Install New Relic agent
         run: |
-          npm install newrelic
+          npm install "https://github.com/k2io/node-newrelic-fork/#ci_support"
 
       - name: Configure New Relic agent
         env:
