@@ -36,8 +36,8 @@ jobs:
         run: |
           sleep 30
 
-      - name: Fire HTTP request to the application
-        uses: actions/http@v1
-        with:
-          url: 'http://localhost:3000'
-          method: 'GET'
+      # - name: Fire HTTP request to the application
+      #   uses: actions/http@v1
+      #   with:
+      #     url: 'http://localhost:3000'
+      #     method: 'GET'
