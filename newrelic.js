@@ -101,14 +101,14 @@ exports.config = {
       }
     },
     scan_controllers: {
-      iast_scan_request_rate_limit: 100,
-      scan_instance_count: 5
+      iast_scan_request_rate_limit: 3600,
+      scan_instance_count: 1
     },
     scan_schedule:
     {
-      delay: 1,
-      duration: 2,
-      schedule: '10 * * * * ?',
+      delay: 0,
+      duration: 0,
+      schedule: '',
       always_sample_traces: true
     },
 
@@ -156,7 +156,7 @@ exports.config = {
         command_injection: false,
         xpath_injection: false,
         ssrf: false,
-        rxss: true
+        rxss: false
       }
     }
 
