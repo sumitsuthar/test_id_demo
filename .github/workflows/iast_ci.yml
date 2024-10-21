@@ -31,7 +31,7 @@ jobs:
         env:
           NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
           NEW_RELIC_APP_NAME: My Express App
-          
+          NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER: ${{ github.actions.run_id }}
 
       - name: Wait for 30 seconds
         run: |
