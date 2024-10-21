@@ -1,7 +1,6 @@
 const newrelic = require('newrelic');
 const express = require('express');
 const app = express();
-console.log("env are:", process.env.NEW_RELIC_LICENSE_KEY);
 
 app.get('/', (req, res) => {
   res.send('Hello from Express!');
