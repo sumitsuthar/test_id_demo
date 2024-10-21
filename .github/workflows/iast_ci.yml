@@ -21,9 +21,11 @@ jobs:
         env:
           NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
           NEW_RELIC_APP_NAME: My Express App
+          NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER: ${{ github.run_id }}
         run: |
           echo "NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY" >> .env
           echo "NEW_RELIC_APP_NAME=$NEW_RELIC_APP_NAME" >> .env
+          echo "NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER=$NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER" >> .env
 
       - name: Start Express app with New Relic agent
         run: |
@@ -31,7 +33,7 @@ jobs:
         env:
           NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
           NEW_RELIC_APP_NAME: My Express App
-          NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER: ${{ github.context.actionId }}
+          NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER: ${{ github.run_id }}
 
       - name: Wait for 30 seconds
         run: |
