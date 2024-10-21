@@ -32,9 +32,9 @@ jobs:
         run: |
           node index.js
 
-      - name: Wait for 30 seconds
-        run: |
-          sleep 30
+      # - name: Wait for 30 seconds
+      #   run: |
+      #     sleep 30
 
       - name: Fire HTTP request to the application
         uses: fjogeleit/http-request-action@v1
