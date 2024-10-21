@@ -1,0 +1,43 @@
+name: Launch Express App with New Relic Agent
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  launch-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Install New Relic agent
+        run: |
+          npm install newrelic
+
+      - name: Configure New Relic agent
+        env:
+          NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
+          NEW_RELIC_APP_NAME: My Express App
+        run: |
+          echo "NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY" >> .env
+          echo "NEW_RELIC_APP_NAME=$NEW_RELIC_APP_NAME" >> .env
+
+      - name: Start Express app with New Relic agent
+        run: |
+          node index.js
+
+      - name: Wait for 30 seconds
+        run: |
+          sleep 30
+
+      - name: Fire HTTP request to the application
+        uses: actions/http@v1
+        with:
+          url: 'http://localhost:3000'
+          method: 'GET'
