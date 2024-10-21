@@ -13,7 +13,6 @@ app.get("/rce/attack", (req, res) => {
     cp.exec(cmd, (err, stdout, stderr) => {
       if (err) {
         console.error(err);
-        res.send("failed")
       }
       res.send(stdout.toString());
     });
