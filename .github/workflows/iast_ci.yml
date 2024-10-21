@@ -50,7 +50,12 @@ jobs:
         run: |
           echo "Response status code: ${{ steps.http.outputs.status }}"
           echo "Response body: ${{ steps.http.outputs.response }}"
+      
+      - name: Execute curl command
+        run: |
+          curl https://example.com
 
       - name: Wait for 300 seconds
         run: |
           sleep 300
+      
