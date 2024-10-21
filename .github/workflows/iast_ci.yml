@@ -22,10 +22,14 @@ jobs:
           NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
           NEW_RELIC_APP_NAME: My Express App
           NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER: ${{ github.run_id }}
+          API_KEY: ${{ secrets.API_KEY }}
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
         run: |
           echo "NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY" >> .env
           echo "NEW_RELIC_APP_NAME=$NEW_RELIC_APP_NAME" >> .env
           echo "NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER=$NEW_RELIC_SECURITY_IAST_TEST_IDENTIFIER" >> .env
+          echo "ACCOUNT_ID=$ACCOUNT_ID" >> .env
+          echo "API_KEY=$API_KEY" >> .env
 
       - name: Start Express app with New Relic agent
         run: |
