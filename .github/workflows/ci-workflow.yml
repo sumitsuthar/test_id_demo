@@ -37,12 +37,12 @@ jobs:
           sleep 30
 
       - name: Fire HTTP request to the application
-        uses: actions/http-client@v1
+        uses: fjogeleit/http-request-action@v1
         id: http
         with:
           url: 'http://localhost:3000'
           method: 'GET'
-          
+
       - name: Print Response
         run: |
           RESPONSE=$(http.response)
