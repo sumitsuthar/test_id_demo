@@ -34,7 +34,7 @@ jobs:
 
       - name: Wait for 30 seconds
         run: |
-          sleep 10
+          sleep 30
 
       - name: Fire HTTP request to the application
         uses: fjogeleit/http-request-action@v1
@@ -47,3 +47,7 @@ jobs:
         run: |
           echo "Response status code: ${{ steps.http.outputs.status }}"
           echo "Response body: ${{ steps.http.outputs.response }}"
+
+      - name: Wait for 300 seconds
+        run: |
+          sleep 300
