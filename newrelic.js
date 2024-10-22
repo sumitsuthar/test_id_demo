@@ -14,7 +14,7 @@ exports.config = {
    * Your New Relic license key.
    */
   license_key: '',
-  // host: 'staging-collector.newrelic.com',
+  host: 'staging-collector.newrelic.com',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
@@ -83,7 +83,7 @@ exports.config = {
     /**
      * New Relic’s SaaS connection URLs
      */
-    validator_service_url: 'wss://csec.nr-data.net',
+    validator_service_url: 'wss://csec-staging.nr-data.net',
     // scan_request_rate_limit:3500,
 
     /**
