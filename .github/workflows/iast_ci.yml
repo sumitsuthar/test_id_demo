@@ -55,11 +55,11 @@ jobs:
           echo "Response status code: ${{ steps.http.outputs.status }}"
           echo "Response body: ${{ steps.http.outputs.response }}"
        
-      - name: Wait for 30 seconds
+      - name: Wait for 60 seconds
         run: |
-          sleep 30
+          sleep 60
 
-      - name: Execute curl command
+      - name: Fetching IAST analysis result based on iast_test_identifier
         env:
           API_KEY: ${{ secrets.API_KEY }}
           ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
