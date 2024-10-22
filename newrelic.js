@@ -83,7 +83,7 @@ exports.config = {
     /**
      * New Relic’s SaaS connection URLs
      */
-    validator_service_url: 'wss://csec-staging.nr-data.net',
+    validator_service_url: 'wss://csec.nr-data.net',
     // scan_request_rate_limit:3500,
 
     /**
